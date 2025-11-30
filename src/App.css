@@ -1,0 +1,284 @@
+/* ---------------- Body & App Container ---------------- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F3F4F6;
+  color: #111827;
+}
+
+.app-container {
+  max-width: 400px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* ---------------- Header ---------------- */
+.app-header {
+  background: linear-gradient(to right, #2563EB, #1D4ED8);
+  color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+/* ---------------- Screens ---------------- */
+.screen {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: linear-gradient(to bottom, #EFF6FF, white);
+}
+
+.screen.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------- Cards ---------------- */
+.card {
+  background: white;
+  padding: 16px;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin-bottom: 16px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.state-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.state-text {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.state-text.calm { color: #34D399; }
+.state-text.active { color: #3B82F6; }
+.state-text.stressed { color: #FACC15; }
+.state-text.panic { color: #EF4444; }
+
+.update-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 8px;
+}
+
+/* ---------------- Vitals Grid ---------------- */
+.vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.vital {
+  background: linear-gradient(45deg, #3B82F6, #06B6D4);
+  padding: 12px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.vital.heart { background: linear-gradient(45deg, #EF4444, #F472B6); }
+.vital.temp { background: linear-gradient(45deg, #F97316, #EF4444); }
+.vital.distance { background: linear-gradient(45deg, #3B82F6, #06B6D4); }
+.vital.battery { background: linear-gradient(45deg, #22C55E, #10B981); }
+
+.vital-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.vital-value { font-size: 20px; font-weight: 600; }
+.vital-unit { font-size: 12px; color: #E0E7FF; }
+
+/* ---------------- Safe Range Slider ---------------- */
+.range-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.range-input {
+  width: 100%;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 4px;
+}
+
+/* ---------------- Action Buttons ---------------- */
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.panic-btn, .connect-btn {
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.panic-btn { background-color: #EF4444; color: white; }
+.panic-btn:hover { background-color: #DC2626; }
+
+.connect-btn { background-color: #2563EB; color: white; }
+.connect-btn:hover { background-color: #1D4ED8; }
+
+/* ---------------- Alerts ---------------- */
+.alerts-list { display: flex; flex-direction: column; gap: 12px; }
+
+.alert { display: flex; gap: 12px; padding: 12px; border-radius: 12px; color: white; }
+
+.alert-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert-red { background-color: #EF4444; }
+.alert-yellow { background-color: #F59E0B; }
+.alert-orange { background-color: #F97316; }
+.alert-gray { background-color: #6B7280; }
+
+.alert-content { flex: 1; }
+.alert-title { font-weight: 600; }
+.alert-desc { font-size: 12px; margin-top: 2px; }
+.alert-time { font-size: 10px; margin-top: 2px; color: #D1D5DB; }
+
+/* ---------------- Settings ---------------- */
+.section-title { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-group { display: flex; flex-direction: column; margin-bottom: 8px; }
+.form-group label { font-size: 12px; margin-bottom: 2px; color: #374151; }
+.form-group input { padding: 6px 8px; border-radius: 6px; border: 1px solid #D1D5DB; }
+
+.toggle-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+
+.settings-btn { width: 100%; padding: 8px 10px; margin-top: 4px; border: none; border-radius: 6px; background-color: #2563EB; color: white; cursor: pointer; font-weight: 500; }
+.settings-btn.danger { background-color: #EF4444; }
+
+/* ---------------- Connection Screen ---------------- */
+.circle.pulse {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #DBEAFE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+/* ---------------- Footer ---------------- */
+.app-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #E5E7EB;
+  background: #F9FAFB;
+}
+
+.app-footer button {
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.app-footer button:hover { color: #2563EB; }
+
+/* ---------------- Responsive for Mobile ---------------- */
+@media (max-width: 480px) {
+  .app-container { max-width: 100%; border-radius: 0; box-shadow: none; }
+  .vitals-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .actions-grid { grid-template-columns: 1fr; gap: 8px; }
+  .panic-btn, .connect-btn { flex: 1 1 100%; padding: 12px; }
+  .state-circle { width: 48px; height: 48px; }
+  .card { padding: 12px; border-radius: 12px; }
+  .state-text { font-size: 1.5rem; }
+  .app-header { padding: 12px; }
+  .app-footer { padding: 8px 0; }
+}
